@@ -1,5 +1,24 @@
 body {
     font-family: "Nunito";
+    background-color: #C9F5C9;
+}
+
+.jumbotron {
+    background-color: #5cb85c;
+    color: #fff;
+}
+
+.navbar-default {
+    background-color: #5cb85c;
+    border: none;
+}
+
+.navbar-default .navbar-brand {
+    color: #fff;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
 }
 
 .thumbnail {
@@ -21,6 +40,10 @@ body {
 .form-style {
     width: 30%; 
     margin: 30px auto;
+}
+
+.lead {
+    display: inline-block;
 }
 
 #back {
