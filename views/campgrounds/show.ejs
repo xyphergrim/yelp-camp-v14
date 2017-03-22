@@ -27,9 +27,19 @@
                 </div>
             </div>
             <div class="well">
-                <div class="text-right">
-                    <a class="btn btn-success" href="/campgrounds/<%= campground._id %>/comments/new">Add New Comment</a>
-                </div>
+                <!--<div class="text-right">-->
+                <!--    <a class="btn btn-success" href="/campgrounds/< campground._id %>/comments/new">Add New Comment</a>-->
+                <!--</div>-->
+                <!--<div class="form-style">-->
+                    <form action="/campgrounds/<%= campground._id %>/comments" method="POST">
+                        <div class="form-group">
+                            <input class="form-control" id="input-comment" type="text" name="comment[text]" placeholder="leave a comment"></input>
+                        </div>
+                        <div class="form-group" id="add-comment">
+                            <button class="btn btn-sm btn-primary btn-block responsive-btn">Add Comment</button>
+                        </div>
+                    </form>
+                <!--</div>-->
                 <hr>
                 <% campground.comments.forEach(function(comment){ %>
                     <div class="row">

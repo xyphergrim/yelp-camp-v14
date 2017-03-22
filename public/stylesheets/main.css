@@ -46,6 +46,15 @@ body {
     display: inline-block;
 }
 
+#input-comment {
+    width: 50%;
+}
+
+#add-comment {
+    width: 18%;
+    min-width: 100px;
+}
+
 #back {
     font-size: 1em;
 }
