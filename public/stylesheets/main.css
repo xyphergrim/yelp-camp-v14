@@ -18,6 +18,11 @@ body {
     text-align: center;
 }
 
+.form-style {
+    width: 30%; 
+    margin: 30px auto;
+}
+
 #back {
     font-size: 1em;
 }
