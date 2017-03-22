@@ -18,6 +18,10 @@ body {
     text-align: center;
 }
 
+#back {
+    font-size: 1em;
+}
+
 #delete-form {
     display: inline;
 }
