@@ -17,8 +17,9 @@ var commentRoutes = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes = require("./routes/index");
 
-mongoose.connect(process.env.DATABASEURL);
-// mongoose.connect("mongodb://john:password@ds137340.mlab.com:37340/yelpcamp-jpc");
+var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v13";
+mongoose.connect(url); // local Cloud9 Dev DB
+
 app.use(bodyParser.urlencoded({extended: true}));
 // app.use(morgan("dev"));
 app.use(express.static(__dirname + "/public"));
