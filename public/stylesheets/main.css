@@ -116,6 +116,12 @@ hr {
     width: 100%;
 }
 
+#about {
+    background-color: #5cb85c;
+    color: #fff;
+    font-size: 1.25em;
+}
+
 /*#login-anchor {*/
 /*    margin-right: 15px;*/
 /*}*/

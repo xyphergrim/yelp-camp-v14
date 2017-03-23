@@ -67,4 +67,9 @@ router.get("/profile", function(req, res) {
     });
 });
 
+// YelpCamp About Page Route
+router.get("/about", function(req, res) {
+    res.render("about");
+});
+
 module.exports = router;
