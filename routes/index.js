@@ -5,6 +5,7 @@ var express = require("express");
 var router = express.Router();
 var passport = require("passport");
 var User = require("../models/user");
+var campground = require("../models/campground");
 
 // Root route
 router.get("/", function(req, res){
@@ -52,6 +53,11 @@ router.get("/logout", function(req, res){
     req.logout();
     req.flash("success", "Logged you out!");
     res.redirect("/campgrounds");
+});
+
+// User Profile Page Route
+router.get("/profile", function(req, res) {
+    res.render("profile", {campground: campground});
 });
 
 module.exports = router;

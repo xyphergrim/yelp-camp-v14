@@ -21,6 +21,10 @@ body {
     color: #fff;
 }
 
+/*.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {*/
+/*    background-color: #C9F5C9;*/
+/*}*/
+
 .thumbnail {
     padding: 0;
 }
@@ -69,6 +73,6 @@ body {
     width: 100%;
 }
 
-#login-anchor {
-    margin-right: 15px;
-}
+/*#login-anchor {*/
+/*    margin-right: 15px;*/
+/*}*/
