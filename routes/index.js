@@ -59,7 +59,6 @@ router.get("/logout", function(req, res){
 router.get("/profile", function(req, res) {
     //Get all campgrounds from DB
     Campground.find({}, null, {sort: {createdAt: -1}}, function(err, allCampgrounds){
-        // null, {sort: {createdAt: -1}}
         if(err){
             console.log(err);
         } else {

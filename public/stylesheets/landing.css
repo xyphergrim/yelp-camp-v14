@@ -73,9 +73,24 @@ body {
     padding-top: 40vh;
 }
 
+/*#landing-header2 {*/
+/*    z-index: 1;*/
+/*    position: relative;*/
+/*    text-align: center;*/
+/*    margin-top: 35px;*/
+/*}*/
+
 #landing-header h1 {
     color: #fff;
 }
+
+/*#landing-header2 h3 {*/
+/*  color: #fff;*/
+/*}*/
+
+/*#landing-header2 h3:hover {*/
+/*  color: #5cb85c;*/
+/*}*/
 
 /* Older browser support - .no-cssanimations class added by modernizr */
 .no-cssanimations .slideshow li {
