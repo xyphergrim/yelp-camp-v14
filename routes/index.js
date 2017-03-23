@@ -5,7 +5,7 @@ var express = require("express");
 var router = express.Router();
 var passport = require("passport");
 var User = require("../models/user");
-var campground = require("../models/campground");
+var Campground = require("../models/campground");
 
 // Root route
 router.get("/", function(req, res){
@@ -57,7 +57,15 @@ router.get("/logout", function(req, res){
 
 // User Profile Page Route
 router.get("/profile", function(req, res) {
-    res.render("profile", {campground: campground});
+    //Get all campgrounds from DB
+    Campground.find({}, null, {sort: {createdAt: -1}}, function(err, allCampgrounds){
+        // null, {sort: {createdAt: -1}}
+        if(err){
+            console.log(err);
+        } else {
+            res.render("profile", {campgrounds: allCampgrounds});
+        }
+    });
 });
 
 module.exports = router;

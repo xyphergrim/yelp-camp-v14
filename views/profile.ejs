@@ -2,24 +2,25 @@
 
 <div class="container">
     <h1><strong>Welcome back <%= currentUser.username %>!</strong></h1>
+    <hr>
     <h2>Your Campgrounds</h2>
-    <!--<div class="row text-center" style="display: flex; flex-wrap: wrap;">-->
-    <!--    < if(campground.author_id === currentUser._id) { %>-->
-    <!--        < campgrounds.forEach(function(campground){ %>-->
-    <!--            <div class="col-md-3 col-sm-6">-->
-    <!--                <div class="thumbnail">-->
-    <!--                    <img src="<= campground.image %>"></img>-->
-    <!--                    <div class="caption">-->
-    <!--                          <h4><= campground.name; %></h4>-->
-    <!--                    </div>-->
-    <!--                    <p>-->
-    <!--                        <a href="/campgrounds/<= campground._id %>" class="btn btn-primary">More Info</a>-->
-    <!--                    </p>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--        < }); %>-->
-    <!--    < } %>-->
-    <!--</div>-->
+    <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+        <% campgrounds.forEach(function(campground){ %>
+            <% if(campground.author.id.equals(currentUser._id)) { %>
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail">
+                        <img src="<%= campground.image %>"></img>
+                        <div class="caption">
+                              <h4><%= campground.name; %></h4>
+                        </div>
+                        <p>
+                            <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More Info</a>
+                        </p>
+                    </div>
+                </div>
+            <% } %>
+        <% }); %>
+    </div>
 </div>
 
 <% include ./partials/footer %>
