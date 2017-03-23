@@ -1,10 +1,36 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
     font-family: "Nunito";
     background-color: #C9F5C9;
+    
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
 
 hr {
     border-top: 1px solid #5cb85c;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #5cb85c;
+}
+
+.container .text-muted {
+    margin: 20px 0;
+    color: #fff;
+}
+
+.text-muted-anchor {
+    color: #fff;
 }
 
 .jumbotron {
@@ -93,3 +119,9 @@ hr {
 /*#login-anchor {*/
 /*    margin-right: 15px;*/
 /*}*/
+
+@media (max-width: 767px){
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+        color: #fff;
+    }
+}
