@@ -88,29 +88,6 @@ router.get("/:id/edit", middleware.checkCampgroundOwnership, function(req, res){
 });
 
 // UPDATE CAMPGROUND ROUTE
-// router.put("/:id", middleware.checkCampgroundOwnership, function(req, res){
-//     geocoder.geocode(req.body.location, function(err, data){
-//         if(err){
-//             console.log(err);
-//         } else {
-//             var lat = data.results[0].geometry.location.lat;
-//             var lng = data.results[0].geometry.location.lng;
-//             var location = data.results[0].formatted_address;
-//             var newData = {name: req.body.name, price: req.body.price, image: req.body.image, description: req.body.description, author: req.body.author, 
-//               location: location, lat: lat, lng: lng
-//           };
-//             // find and update the correct campground
-//             Campground.findByIdAndUpdate(req.params.id, {$set: newData}, function(err, campground){
-//                 if(err){
-//                     req.flash("error", "Campground not found");
-//                     res.redirect("/campgrounds");
-//                 } else {
-//                     res.redirect("/campgrounds/" + campground._id);
-//                 }
-//             });
-//         }
-//   });
-// });
 router.put("/:id", function(req, res){
   geocoder.geocode(req.body.location, function (err, data) {
     var lat = data.results[0].geometry.location.lat;

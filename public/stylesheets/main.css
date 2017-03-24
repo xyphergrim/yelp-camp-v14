@@ -93,6 +93,10 @@ hr {
     text-align: center;
 }
 
+.about-contact {
+    border-top: 1px solid #fff;
+}
+
 #input-comment {
     width: 50%;
 }
@@ -122,12 +126,26 @@ hr {
     font-size: 1.25em;
 }
 
+#contact {
+    background-color: #5cb85c;
+    color: #fff;
+    font-size: 1.25em;
+}
+
 /*#login-anchor {*/
 /*    margin-right: 15px;*/
 /*}*/
 
-@media (max-width: 767px){
+@media (max-width: 767px) {
+    body {
+        margin-bottom: 80px;
+    }
+    
     .navbar-default .navbar-nav .open .dropdown-menu>li>a {
         color: #fff;
+    }
+    
+    .footer {
+        height: 80px;
     }
 }

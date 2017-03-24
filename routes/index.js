@@ -58,11 +58,11 @@ router.get("/logout", function(req, res){
 // User Profile Page Route
 router.get("/profile", function(req, res) {
     //Get all campgrounds from DB
-    Campground.find({}, null, {sort: {createdAt: -1}}, function(err, allCampgrounds){
+    Campground.find({}, null, {sort: {createdAt: -1}}).where("author.id").equals(req.user.id).exec(function(err, campgrounds){
         if(err){
             console.log(err);
         } else {
-            res.render("profile", {campgrounds: allCampgrounds});
+            res.render("profile", {campgrounds: campgrounds});
         }
     });
 });
@@ -70,6 +70,11 @@ router.get("/profile", function(req, res) {
 // YelpCamp About Page Route
 router.get("/about", function(req, res) {
     res.render("about");
+});
+
+// YelpCamp Contact Page Route
+router.get("/contact", function(req, res) {
+    res.render("contact");
 });
 
 module.exports = router;

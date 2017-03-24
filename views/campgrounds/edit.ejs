@@ -16,7 +16,7 @@
                 </div>
                 <div class="form-group">
                     <label for="location">Location</label>
-                    <input class="form-control" type="text" name="location" value="<%= campground.location %>" id="location"></input>
+                    <input class="form-control" type="text" name="location" value="<%= campground.location %>" id="location" required oninvalid="setCustomValidity('Does it exist in the aether?!')"></input>
                 </div>
                 <div class="form-group">
                     <label for="iamge">Image</label>
@@ -31,7 +31,7 @@
                 </div>
             </form>
             
-            <a href="/campgrounds">Go Back</a>
+            <a href="/campgrounds/<%= campground._id %>">Go Back</a>
         </div>
     </div>
 </div>
