@@ -6,6 +6,7 @@ var router = express.Router();
 var Campground = require("../models/campground");
 var middleware = require("../middleware");
 var geocoder = require("geocoder");
+var Comment = require("../models/comment");
 
 // INDEX - show all campgrounds
 router.get("/", function(req, res){
@@ -108,11 +109,20 @@ router.put("/:id", function(req, res){
 
 // DESTROY CAMPGROUND ROUTE
 router.delete("/:id", middleware.checkCampgroundOwnership, function(req, res){
-    Campground.findByIdAndRemove(req.params.id, function(err){
+    Campground.findByIdAndRemove(req.params.id, function(err, foundCampground){
         if(err){
             req.flash("error", "Campground not found");
             res.redirect("/campgrounds");
         } else {
+            Comment.remove({
+                _id: {
+                    $in: foundCampground.comments
+                }
+            }, function(err, result){
+                if(err){
+                    console.log(err);
+                }
+            });
             res.redirect("/campgrounds");
         }
     });

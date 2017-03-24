@@ -78,8 +78,15 @@ router.delete("/:comment_id", middleware.checkCommentOwnership, function(req, re
             req.flash("error", "Error Delete: comment not found");
             res.redirect("back");
         } else {
-            req.flash("success", "Comment deleted");
-            res.redirect("/campgrounds/" + req.params.id);
+            Campground.findByIdAndUpdate(req.params.id, {$pull: {comments: req.params.comment_id}}, 
+            function(err,data){
+                if(err){
+                    console.log(err);
+                } else {
+                    req.flash("success", "Comment deleted");
+                    res.redirect("/campgrounds/" + req.params.id);
+                }
+            });
         }
     });
 });
