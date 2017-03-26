@@ -8,17 +8,38 @@ var middleware = require("../middleware");
 var geocoder = require("geocoder");
 var Comment = require("../models/comment");
 
+// Define escapeRefex function for search feature
+function escapeRegex(text){
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+}
+
 // INDEX - show all campgrounds
 router.get("/", function(req, res){
-    //Get all campgrounds from DB
-    Campground.find({}, null, {sort: {createdAt: -1}}, function(err, allCampgrounds){
-        // null, {sort: {createdAt: -1}}
-        if(err){
-            console.log(err);
-        } else {
-            res.render("campgrounds/index", {campgrounds: allCampgrounds});
-        }
-    });
+    if(req.query.search && req.xhr){
+        const regex = new RegExp(escapeRegex(req.query.search), "gi");
+        // Get all campgrounds from DB
+        Campground.find({name: regex}, function(err, allCampgrounds){
+            if(err){
+                console.log(err);
+            } else {
+                res.status(200).json(allCampgrounds);
+            }
+        });
+    } else {
+        //Get all campgrounds from DB
+        Campground.find({}, null, {sort: {createdAt: -1}}, function(err, allCampgrounds){
+            // null, {sort: {createdAt: -1}}
+            if(err){
+                console.log(err);
+            } else {
+                if(req.xhr){
+                    res.json(allCampgrounds);
+                } else {
+                    res.render("campgrounds/index", {campgrounds: allCampgrounds});
+                }
+            }
+        });
+    }
 });
 
 // CREATE - add new campgrounds to DB
