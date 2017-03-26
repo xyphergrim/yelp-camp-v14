@@ -132,9 +132,9 @@ hr {
     font-size: 1.25em;
 }
 
-/*#login-anchor {*/
-/*    margin-right: 15px;*/
-/*}*/
+#camp-search {
+    width: 170px;
+}
 
 @media (max-width: 767px) {
     body {
@@ -148,4 +148,6 @@ hr {
     .footer {
         height: 80px;
     }
+    
+    
 }
