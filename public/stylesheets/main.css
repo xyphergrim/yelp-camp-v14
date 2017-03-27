@@ -135,6 +135,14 @@ hr {
     width: 170px;
 }
 
+#questions {
+    margin-top: 35px;
+}
+
+#answer1, #answer2 {
+    margin-top: 10px;
+}
+
 @media (max-width: 767px) {
     body {
         margin-bottom: 80px;

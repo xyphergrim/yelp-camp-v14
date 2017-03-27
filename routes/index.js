@@ -19,7 +19,17 @@ router.get("/register", function(req, res){
 
 // handle sign up logic
 router.post("/register", function(req, res){
-    var newUser = new User({username: req.body.username});
+    var newUser = new User({username: req.body.username, email: req.body.email});
+    
+    // User.find({}).where("email").equals(req.body.email).exec(function(err){
+    //     if(err){
+    //         console.log(err);
+    //     } else {
+    //         req.flash("Email has already been registered");
+    //         return res.redirect("/register");
+    //     }
+    // });
+    
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             req.flash("error", err.message);
