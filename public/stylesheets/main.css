@@ -6,7 +6,6 @@ html {
 body {
     font-family: "Nunito";
     background-color: #C9F5C9;
-    
     /* Margin bottom by footer height */
     margin-bottom: 60px;
 }

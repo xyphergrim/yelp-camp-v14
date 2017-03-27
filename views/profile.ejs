@@ -1,11 +1,18 @@
 <% include ./partials/header %>
 
+<% var count = 0; %>
+
 <div class="container">
     <h1><strong>Welcome back <%= currentUser.username %>!</strong></h1>
     <hr>
-    <h2>Your Campgrounds</h2>
+    <!--<div class="well">-->
+    <!--    <h3>Username: <%= currentUser.username %></h3>-->
+    <!--    <h3>Email: <%= currentUser.email %></h3>-->
+    <!--</div>-->
+    <h2 id="profileCamps">Your Campgrounds</h2>
     <div class="row text-center" style="display: flex; flex-wrap: wrap;">
         <% campgrounds.forEach(function(campground){ %>
+            <% count++; %>
             <div class="col-md-3 col-sm-6">
                 <div class="thumbnail">
                     <img src="<%= campground.image %>"></img>
@@ -19,6 +26,11 @@
             </div>
         <% }); %>
     </div>
+    
+    <!--// if(count === 0) { -->
+    <!--//      changeH2ProfileText(); -->
+    <!--//  } -->
+    
 </div>
 
 <% include ./partials/footer %>
