@@ -6,7 +6,6 @@ html {
 body {
     font-family: "Nunito";
     background-color: #C9F5C9;
-    
     /* Margin bottom by footer height */
     margin-bottom: 60px;
 }
@@ -134,6 +133,14 @@ hr {
 
 #camp-search {
     width: 170px;
+}
+
+#questions {
+    margin-top: 35px;
+}
+
+#answer1, #answer2 {
+    margin-top: 10px;
 }
 
 @media (max-width: 767px) {
