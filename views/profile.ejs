@@ -1,34 +1,51 @@
 <% include ./partials/header %>
 
-<% var count = 0; %>
-
-<div class="container">
-    <h1><strong>Welcome back <%= currentUser.username %>!</strong></h1>
-    <hr>
-    <div class="well">
-        <h3>Username: <%= currentUser.username %></h3>
-        <h3>Email: <%= currentUser.email %></h3>
+<div class="row profile-row">
+    <div class="col-md-3">
+        <div class="well" id="profileInfo">
+            <label class="profileLabels">Username</label>
+            <h3 class="userProfileInfo"><%= currentUser.username %></h3>
+            <label class="profileLabels">Email</label>
+            <h3 class="userProfileInfo"><%= currentUser.email %></h3>
+            <label class="profileLabels">Gender</label>
+            <h3 class="userProfileInfo">gender here</h3>
+            <label class="profileLabels">Bio</label>
+            <h3 class="userProfileInfo">user bio</h3>
+            <label class="profileLabels">Interests</label>
+            <h3 class="userProfileInfo">user interests</h3>
+        </div>
     </div>
-    <h2 id="profileCamps">Your Campgrounds</h2>
-    <div class="row text-center" style="display: flex; flex-wrap: wrap;">
-        <% campgrounds.forEach(function(campground){ %>
-            <% count++; %>
-            <div class="col-md-3 col-sm-6">
-                <div class="thumbnail">
-                    <img src="<%= campground.image %>"></img>
-                    <div class="caption">
-                          <h4><%= campground.name; %></h4>
+    <div class="col-md-6">
+        <div class="container">
+            <h1><strong>Welcome back <%= currentUser.username %>!</strong></h1>
+            <hr>
+            <% if(!campgrounds.length) { %>
+                <h2 id="noCampsH2">You have no campgrounds! :(</h2>
+            <% } else { %>
+                <h2 id="campsH2">Your Campgrounds</h2>
+            <% } %>
+            <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+                <% campgrounds.forEach(function(campground){ %>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="thumbnail">
+                            <img src="<%= campground.image %>"></img>
+                            <div class="caption">
+                                  <h4><%= campground.name; %></h4>
+                            </div>
+                            <p>
+                                <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More Info</a>
+                            </p>
+                        </div>
                     </div>
-                    <p>
-                        <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More Info</a>
-                    </p>
-                </div>
+                <% }); %>
             </div>
-        <% }); %>
+        </div>
     </div>
-    <!--< if(count === 0) { %>-->
-    <!--    < changeH2ProfileText(); >-->
-    <!--< } %>-->
+    <div class="col-md-3">
+        
+    </div>
 </div>
+
+
 
 <% include ./partials/footer %>

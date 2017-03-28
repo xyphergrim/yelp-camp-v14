@@ -96,6 +96,18 @@ hr {
     border-top: 1px solid #fff;
 }
 
+.profileLabels {
+    font-size: 2em;
+}
+
+.userProfileInfo {
+    margin-top: 2px;
+}
+
+.profile-row {
+    margin: 0;
+}
+
 #input-comment {
     width: 50%;
 }
@@ -141,6 +153,20 @@ hr {
 
 #answer1, #answer2 {
     margin-top: 10px;
+}
+
+#noCampsH2 {
+    padding-top: 20vh;
+    text-align: center;
+    font-size: 4em;
+}
+
+#profileInfo {
+    width: 70%;
+    height: 700px;
+    background-color: #5cb85c;
+    color: #fff;
+    margin-left: 10px;
 }
 
 @media (max-width: 767px) {
