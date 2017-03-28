@@ -96,16 +96,9 @@ hr {
     border-top: 1px solid #fff;
 }
 
-.profileLabels {
-    font-size: 2em;
-}
-
-.userProfileInfo {
-    margin-top: 2px;
-}
-
-.profile-row {
-    margin: 0;
+.profile-info {
+    display: inline-block;
+    margin-right: 25px;
 }
 
 #input-comment {
@@ -181,5 +174,8 @@ hr {
         height: 80px;
     }
     
-    
+    #noCampsH2 {
+        padding-top: 10vh;
+        font-size: 2em;
+    }
 }

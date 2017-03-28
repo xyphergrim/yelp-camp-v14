@@ -1,12 +1,13 @@
 <% include ./partials/header %>
 
 <div class="container">
-    <h1><strong>Welcome back <%= currentUser.username %>!</strong></h1>
-    <hr>
+    <div class="jumbotron">
+        <h1><strong>Welcome back <%= currentUser.username %>!</strong></h1>
+        <p class="profile-info">Total Campgrounds: <%= campgrounds.length %></p>
+        <p class="profile-info">Favorites: </p>
+    </div>
     <% if(!campgrounds.length) { %>
         <h2 id="noCampsH2">You have no campgrounds! :(</h2>
-    <% } else { %>
-        <h2 id="campsH2">Your Campgrounds</h2>
     <% } %>
     <div class="row text-center" style="display: flex; flex-wrap: wrap;">
         <% campgrounds.forEach(function(campground){ %>
