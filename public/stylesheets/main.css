@@ -50,9 +50,9 @@ hr {
     color: #fff;
 }
 
-/*.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {*/
-/*    background-color: #C9F5C9;*/
-/*}*/
+.navbar-form {
+    display: inline-block;
+}
 
 .thumbnail {
     padding: 0;

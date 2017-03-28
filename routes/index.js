@@ -72,7 +72,7 @@ router.get("/profile", function(req, res) {
         if(err){
             console.log(err);
         } else {
-            res.render("profile", {campgrounds: campgrounds});
+            res.render("profile", {campgrounds: campgrounds, page: "profile"});
         }
     });
 });

@@ -21,7 +21,11 @@
                         <li id="login-anchor"><a href="/login"><i class="fa fa-sign-in"></i> Login</a></li>
                         <li><a href="/register">Sign Up</a></li>
                     <% } else { %>
-                        <!--<li><a id="user-profile" href="#">Signed In As <= currentUser.username %></a></li>-->
+                        <% if(typeof page !== "undefined" && page === "profile"){ %>
+                            <form class="navbar-form">
+                                <button class="btn btn-default">Change Theme</button>
+                            </form>
+                        <% } %>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" 
                             aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><span class="caret"></span></a>
