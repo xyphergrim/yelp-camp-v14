@@ -10,7 +10,6 @@ var morgan          = require("morgan"),
     Comment         = require("./models/comment"),
     User            = require("./models/user"),
     flash           = require("connect-flash"),
-    jsCookie        = require("js-cookie"),
     seedDB          = require("./seeds");
     
 // requiring routes

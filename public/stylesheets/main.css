@@ -101,6 +101,10 @@ hr {
     margin-right: 25px;
 }
 
+.well {
+    border: none;
+}
+
 #input-comment {
     width: 50%;
 }
