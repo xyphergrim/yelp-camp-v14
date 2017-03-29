@@ -18,13 +18,11 @@ $(document).ready(function(){
             localStorage.bodyTheme = greenThemeBody;
             localStorage.navTheme = greenNavBody;
             localStorage.btnTheme = btnDefault;
-            
-            setAppTheme();
         } else {
             // Load the localStorage objects into the css elements
             setAppTheme();
         }
-        
+
         $("#theme-btn").on("click", function(){
             if(localStorage.bodyTheme === greenThemeBody){
                 localStorage.bodyTheme = blueThemeBody;
@@ -46,7 +44,7 @@ $(document).ready(function(){
         alert("Your browser does not support Web Storage. Some features may be disabled. " + 
         "Please update your browser for full YelpCamp compatibility.");
     }
-    
+
     function setAppTheme(){
         $("body").css("background-color", localStorage.bodyTheme);
         $(".jumbotron").css("background-color", localStorage.navTheme);

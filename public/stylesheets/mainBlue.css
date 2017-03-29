@@ -1,0 +1,185 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Nunito";
+    background-color: #AEE3F5;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+hr {
+    border-top: 1px solid #0C65C4;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #0C65C4;
+}
+
+.container .text-muted {
+    margin: 20px 0;
+    color: #fff;
+}
+
+.text-muted-anchor {
+    color: #fff;
+}
+
+.jumbotron {
+    background-color: #0C65C4;
+    color: #fff;
+}
+
+.navbar-default {
+    background-color: #0C65C4;
+    border: none;
+}
+
+.navbar-default .navbar-brand {
+    color: #fff;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+}
+
+.navbar-form {
+    display: inline-block;
+}
+
+.thumbnail {
+    padding: 0;
+    background-color: #0C65C4;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail .caption {
+    color: #fff;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+}
+
+.caption-full {
+    color: #fff;
+}
+
+.caption-full a {
+    color: #fff;
+}
+
+.form-style {
+    width: 30%; 
+    margin: 30px auto;
+}
+
+.lead {
+    display: inline-block;
+}
+
+.login-header {
+    text-align: center;
+}
+
+.about-contact {
+    border-top: 1px solid #fff;
+}
+
+.profile-info {
+    display: inline-block;
+    margin-right: 25px;
+}
+
+.well {
+    border: none;
+}
+
+#input-comment {
+    width: 50%;
+}
+
+#add-comment {
+    width: 18%;
+    min-width: 100px;
+}
+
+#back {
+    font-size: 1em;
+}
+
+#delete-form {
+    display: inline;
+}
+
+/* Google Maps */
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+#about {
+    background-color: #5cb85c;
+    color: #fff;
+    font-size: 1.25em;
+}
+
+#contact {
+    background-color: #5cb85c;
+    color: #fff;
+    font-size: 1.25em;
+}
+
+#camp-search {
+    width: 170px;
+}
+
+#questions {
+    margin-top: 35px;
+}
+
+#answer1, #answer2 {
+    margin-top: 10px;
+}
+
+#noCampsH2 {
+    padding-top: 20vh;
+    text-align: center;
+    font-size: 4em;
+}
+
+#profileInfo {
+    width: 70%;
+    height: 700px;
+    background-color: #0C65C4;
+    color: #fff;
+}
+
+@media (max-width: 767px) {
+    body {
+        margin-bottom: 80px;
+    }
+    
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+        color: #fff;
+    }
+    
+    .footer {
+        height: 80px;
+    }
+    
+    #noCampsH2 {
+        padding-top: 10vh;
+        font-size: 2em;
+    }
+}
