@@ -57,6 +57,7 @@ hr {
 .thumbnail {
     padding: 0;
     background-color: #0C65C4;
+    /*border: none;*/
 }
 
 .thumbnail img {
