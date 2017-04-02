@@ -45,6 +45,11 @@ passport.deserializeUser(User.deserializeUser());
 // middleware to run for every route
 app.use(function(req, res, next){
     res.locals.currentUser = req.user;
+    if(req.user) {
+        res.locals.theme = req.user.theme;
+    } else {
+        res.locals.theme = "green";
+    }
     res.locals.error = req.flash("error");
     res.locals.success = req.flash("success");
     next();

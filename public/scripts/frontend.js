@@ -61,57 +61,55 @@ $(document).ready(function(){
     //=======================================================================================================
     // DIFFERENT WAY BY LOADING IN DIFFERENT CSS FILES - both ways have lag issue when navigating through app
     //=======================================================================================================
-    if(typeof(Storage) !== "undefined"){
-        if(!localStorage.currentNewTheme){
-            var defaultTheme = "green";
-            localStorage.currentNewTheme = defaultTheme;
-        }
+    // if(typeof(Storage) !== "undefined"){
+    //     if(!localStorage.currentNewTheme){
+    //         var defaultTheme = "green";
+    //         localStorage.currentNewTheme = defaultTheme;
+    //     }
         
-        // When the page loads, look for the cookie value.
-        var theme = localStorage.currentNewTheme;   
+    //     // When the page loads, look for the cookie value.
+    //     var theme = localStorage.currentNewTheme;   
         
-        // If you find it
-        if (theme === "green") {
-            $("#green-theme").attr("rel", "stylesheet");
-            $("#blue-theme").attr("rel", "alt-stylesheet");
-            $("#dark-theme").attr("rel", "alt-stylesheet");
-            // $('link[id="green-theme"]').attr('href', '/stylesheets/main.css');
-        } else if (theme === "blue") {
-            $("#blue-theme").attr("rel", "stylesheet");
-            $("#green-theme").attr("rel", "alt-stylesheet");
-            $("#dark-theme").attr("rel", "alt-stylesheet");
-            // $('link[id="theme"]').attr('href', '/stylesheets/mainBlue.css');
-        } else if (theme === "dark") {
-            $("#dark-theme").attr("rel", "stylesheet");
-            $("#main-theme").attr("rel", "alt-stylesheet");
-            $("#blue-theme").attr("rel", "alt-stylesheet");
-            // $('link[id="theme"]').attr('href', '/stylesheets/mainDark.css');
-        }
-    
-        $("#theme-btn").on("click", function(){
-            if (theme === "green") {
-                $("#blue-theme").attr("rel", "stylesheet");
-                $("#green-theme").attr("rel", "alt-stylesheet");
-                $("#dark-theme").attr("rel", "alt-stylesheet");
-                // $('link[id="theme"]').attr('href', '/stylesheets/mainBlue.css');
-                localStorage.currentNewTheme = "blue";
-            } else if (theme === "blue") {
-                $("#dark-theme").attr("rel", "stylesheet");
-                $("#main-theme").attr("rel", "alt-stylesheet");
-                $("#blue-theme").attr("rel", "alt-stylesheet");
-                // $('link[id="theme"]').attr('href', '/stylesheets/mainDark.css');
-                localStorage.currentNewTheme = "dark"
-            } else if (theme === "dark") {
-                $("#green-theme").attr("rel", "stylesheet");
-                $("#blue-theme").attr("rel", "alt-stylesheet");
-                $("#dark-theme").attr("rel", "alt-stylesheet");
-                // $('link[id="theme"]').attr('href', '/stylesheets/main.css');
-                localStorage.currentNewTheme = "green";
-            }
-        });
-    } else {
-        // Sorry! no web storage support
-        alert("Your browser does not support Web Storage. Some features may be disabled. " + 
-        "Please update your browser for full YelpCamp compatibility");
-    }
+    //     // If you find it
+    //     if (theme === "green") {
+    //         $("#theme-css").attr("href", "/stylesheets/main.css");
+    //         // $('link[id="green-theme"]').attr('href', '/stylesheets/main.css');
+    //     } else if (theme === "blue") {
+    //         $("#theme-css").attr("href", "/stylesheets/mainBlue.css");
+    //         // $('link[id="theme"]').attr('href', '/stylesheets/mainBlue.css');
+    //     } else if (theme === "dark") {
+    //       $("#theme-css").attr("href", "/stylesheets/mainDark.css");
+    //         // $('link[id="theme"]').attr('href', '/stylesheets/mainDark.css');
+    //     }
+
+    //     $("#theme-btn").click(function(event){
+    //         // stop the form from submitting
+    //         event.preventDefault();
+    //         if (theme === "green") {
+    //             $("#theme-css").attr("href", "/stylesheets/mainBlue.css");
+    //             localStorage.currentNewTheme = "blue";
+    //             theme = "blue";
+    //         } else if (theme === "blue") {
+    //             $("#theme-css").attr("href", "/stylesheets/mainDark.css");
+    //             localStorage.currentNewTheme = "dark"
+    //             theme = "dark";
+    //         } else if (theme === "dark") {
+    //             $("#theme-css").attr("href", "/stylesheets/main.css");
+    //             localStorage.currentNewTheme = "green";
+    //             theme = "green";
+    //         }
+    //     });
+    // } else {
+    //     // Sorry! no web storage support
+    //     alert("Your browser does not support Web Storage. Some features may be disabled. " + 
+    //     "Please update your browser for full YelpCamp compatibility");
+    // }
+    $("#theme-btn").click(function(event){
+       // stop the form from submitting
+       event.preventDefault();
+       // update the user's theme in the database and update the theme on the page
+       $.get("/theme", function(themeColor) {
+           $("#theme-css").attr("href", "/stylesheets/"+themeColor+".css");
+       });
+    });
 });

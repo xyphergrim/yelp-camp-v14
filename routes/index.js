@@ -77,6 +77,19 @@ router.get("/profile", function(req, res) {
     });
 });
 
+// update user's theme
+router.get("/theme", function(req, res) {
+    User.findById(req.user._id, function(err, user) {
+        if(err) {console.log(err)}
+        user.theme = setTheme(user.theme);
+        user.save();
+        req.login(user, function(err) {
+            if(err) { console.log(err)}
+            res.status(200).json(user.theme);
+        });
+    });
+});
+
 // YelpCamp About Page Route
 router.get("/about", function(req, res) {
     res.render("about");
@@ -86,5 +99,15 @@ router.get("/about", function(req, res) {
 router.get("/contact", function(req, res) {
     res.render("contact");
 });
+
+function setTheme(color) {
+    if(color === "green") {
+        return "blue";
+    } else if (color === "blue") {
+        return "dark";
+    } else {
+        return "green";
+    }
+}
 
 module.exports = router;
