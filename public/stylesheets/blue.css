@@ -15,6 +15,11 @@ hr {
     border-top: 1px solid #0C65C4;
 }
 
+.btn {
+    background-color: #fff;
+    color: #333;
+}
+
 .footer {
     position: absolute;
     bottom: 0;
@@ -131,15 +136,23 @@ hr {
 }
 
 #about {
-    background-color: #5cb85c;
+    background-color: #0C65C4;
     color: #fff;
     font-size: 1.25em;
 }
 
+#about a {
+    color: #222;
+}
+
 #contact {
-    background-color: #5cb85c;
+    background-color: #0C65C4;
     color: #fff;
     font-size: 1.25em;
+}
+
+#contact a {
+    color: #222;
 }
 
 #camp-search {
