@@ -104,6 +104,7 @@ $(document).ready(function(){
     //     alert("Your browser does not support Web Storage. Some features may be disabled. " + 
     //     "Please update your browser for full YelpCamp compatibility");
     // }
+    
     $("#theme-btn").click(function(event){
        // stop the form from submitting
        event.preventDefault();

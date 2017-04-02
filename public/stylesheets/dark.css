@@ -1,6 +1,7 @@
 html {
     position: relative;
     min-height: 100%;
+    background-color: #B0B2B5 !important;
 }
 
 body {
