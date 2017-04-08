@@ -107,6 +107,18 @@ hr {
     border: none;
 }
 
+.list-group-item:hover {
+    background-color: #9ECAD9;
+}
+
+.active {
+    background-color: #337ab7;
+}
+
+.fa-star:hover {
+    color: yellow;
+}
+
 #input-comment {
     width: 50%;
 }
@@ -165,6 +177,11 @@ hr {
     height: 700px;
     background-color: #454A4F;
     color: #fff;
+}
+
+#favorite-btn {
+    background-color: #454A4F;
+    border: none;
 }
 
 @media (max-width: 767px) {

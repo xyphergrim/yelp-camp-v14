@@ -3,9 +3,8 @@
 <div class="container">
     <div class="jumbotron">
         <h1><strong>Welcome back <%= currentUser.username %>!</strong></h1>
-        <% console.log(currentUser.favorite) %>
         <p class="profile-info">Total Campgrounds: <%= campgrounds.length %></p>
-        <p class="profile-info">Favorites: </p>
+        <p class="profile-info">Favorites: <%= currentUser.favorites.length %></p>
     </div>
     <% if(!campgrounds.length) { %>
         <h2 id="noCampsH2">You have no campgrounds! :(</h2>

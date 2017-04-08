@@ -39,6 +39,16 @@ app.use(require("express-session")({
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
+// passport.use(new LocalStrategy({usernameField: 'email'}, function(email, password, done){
+//     User.findOne({email: email}, function(err, user){
+//         if(err){
+//             console.log(err);
+//         } else {
+//         }
+//     });
+    
+//     User.authenticate();
+// }));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 

@@ -1,4 +1,4 @@
-/* global $ localStorage*/
+/* global $*/
 
 $(document).ready(function(){
     //Theme colors
@@ -112,5 +112,16 @@ $(document).ready(function(){
        $.get("/theme", function(themeColor) {
            $("#theme-css").attr("href", "/stylesheets/"+themeColor+".css");
        });
+    });
+    
+    $("#favorite-form").submit(function(event){
+        event.preventDefault();
+        alert("submit works!");
+        var action = $(this).attr("action");
+        console.log(action);
+        $.get(action, function(data){
+            $("#favorite-btn").toggleClass("favorite-btn-on");
+            console.log(data);
+        });
     });
 });

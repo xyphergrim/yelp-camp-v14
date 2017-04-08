@@ -6,7 +6,7 @@ var UserSchema = new mongoose.Schema({
     password: String,
     email: String,
     theme: {type: String, default: "green"},
-    favorite: {type: Boolean, default: false}
+    favorites: Array
 });
 
 UserSchema.plugin(passportLocalMongoose);

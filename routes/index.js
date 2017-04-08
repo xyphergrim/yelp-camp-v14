@@ -21,12 +21,12 @@ router.get("/register", function(req, res){
 router.post("/register", function(req, res){
     var newUser = new User({username: req.body.username, email: req.body.email});
     
-    // User.find({}).where("email").equals(req.body.email).exec(function(err){
+    // User.find({}).where("email").equals(newUser.email).exec(function(err){
     //     if(err){
     //         console.log(err);
     //     } else {
-    //         req.flash("Email has already been registered");
-    //         return res.redirect("/register");
+    //         console.log("Email is already in use");
+    //         // return res.redirect("/register");
     //     }
     // });
     
@@ -87,6 +87,24 @@ router.get("/theme", function(req, res) {
             if(err) { console.log(err)}
             res.status(200).json(user.theme);
         });
+    });
+});
+
+// update user's favorites array
+router.get("/favorites/:id", function(req, res){
+    User.findById(req.user._id, function(err, user){
+        if(err) {console.log(err)}
+        // if the favorite doesn't exist yet, add it
+        if(user.favorites.indexOf("/campgrounds/"+req.params.id) === -1) {
+            user.favorites.push("/campgrounds/"+req.params.id);
+        } else {
+            // otherwise delete it
+            user.favorites.splice(user.favorites.indexOf("/campgrounds/"+req.params.id), 1);
+        }
+        user.save();
+        // res.redirect("/campgrounds/show");
+        console.log("Favorites: " + user.favorites);
+        res.status(200).json('Success!');
     });
 });
 
