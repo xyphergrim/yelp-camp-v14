@@ -95,14 +95,14 @@ router.get("/favorites/:id", function(req, res){
     User.findById(req.user._id, function(err, user){
         if(err) {console.log(err)}
         // if the favorite doesn't exist yet, add it
-        if(user.favorites.indexOf("/campgrounds/"+req.params.id) === -1) {
+        var favoriteIndex = user.favorites.indexOf("/campgrounds/"+req.params.id);
+        if(favoriteIndex === -1) {
             user.favorites.push("/campgrounds/"+req.params.id);
         } else {
             // otherwise delete it
-            user.favorites.splice(user.favorites.indexOf("/campgrounds/"+req.params.id), 1);
+            user.favorites.splice(favoriteIndex, 1);
         }
         user.save();
-        // res.redirect("/campgrounds/show");
         console.log("Favorites: " + user.favorites);
         res.status(200).json('Success!');
     });

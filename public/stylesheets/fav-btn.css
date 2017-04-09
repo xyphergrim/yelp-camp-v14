@@ -2,3 +2,7 @@
     color: yellow;
     border: none;
 }
+
+#favorite-btn {
+    outline: none;
+}

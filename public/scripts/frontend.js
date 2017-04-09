@@ -116,7 +116,7 @@ $(document).ready(function(){
     
     $("#favorite-form").submit(function(event){
         event.preventDefault();
-        alert("submit works!");
+        // alert("submit works!");
         var action = $(this).attr("action");
         console.log(action);
         $.get(action, function(data){

@@ -20,20 +20,11 @@
                     <p><%= campground.description %></p>
                     <p><em>Submitted by</em> <%= campground.author.username %>, <%= moment(campground.createdAt).fromNow() %></p>
                     <% if(currentUser) { %>
+                        <% console.log(campground._id); %>
                         <form id="favorite-form" action="/favorites/<%= campground._id %>" method="GET">
-                            <!--< currentUser.favorites.forEach(function(favorite) { %>-->
-                            <!--    < if(favorite.equals("/campgrounds/"+campground._id)){ %>-->
-                            <!--        <button class="pull-right favorite-btn-on" id="favorite-btn"><i class="fa fa-star fa-2x" aria-hidden="true"></i></button>-->
-                            <!--    < } else { %>-->
-                            <!--        <submit class="pull-right" id="favorite-btn"><i class="fa fa-star fa-2x" aria-hidden="true"></i></submit>-->
-                            <!--    < } %>-->
-                            <!--< }); %>-->
-                            <button type="submit" class="pull-right <%= currentUser.favorites.indexOf("/campgrounds/"+campground._id) === 0 ? "favorite-btn-on" : "" %>" id="favorite-btn">
+                            <button type="submit" class="pull-right <%= currentUser.favorites.indexOf("/campgrounds/"+campground._id) !== -1 ? "favorite-btn-on" : "" %>" id="favorite-btn">
                                 <i class="fa fa-star fa-2x" aria-hidden="true"></i>
                             </button>
-                            <!--<input type="submit" class="pull-right" id="favorite-btn">-->
-                            <!--<submit class="pull-right" id="favorite-btn"><i class="fa fa-star fa-2x" aria-hidden="true"></i></submit>-->
-                            <!--<button class="pull-right" id="favorite-btn"><i class="fa fa-star fa-2x" aria-hidden="true"></i></button>-->
                         </form>
                     <% } %>
                     <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
