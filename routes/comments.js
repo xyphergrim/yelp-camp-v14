@@ -1,6 +1,7 @@
 // ===================
 // COMMENTS ROUTES
 // ===================
+/* global $ */
 var express = require("express");
 var router = express.Router({mergeParams: true}); // merge params from campgrounds and comments together
 var Campground = require("../models/campground");
@@ -83,6 +84,8 @@ router.delete("/:comment_id", middleware.checkCommentOwnership, function(req, re
                 if(err){
                     console.log(err);
                 } else {
+                    // $(".comment-display-"+).remove();
+                    // $(".comment-button-"+req.params.comment_id).remove();
                     // req.flash("success", "Comment deleted");
                     // res.redirect("/campgrounds/" + req.params.id);
                     res.json("Success!");

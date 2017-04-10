@@ -54,7 +54,7 @@
                                 <%= comment.text %>
                             </p>
                             <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
-                                <a class="comment-button btn btn-xs btn-warning" 
+                                <a class="comment-button-<%= comment._id %> btn btn-xs btn-warning" 
                                 href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit">Edit</a>
                                 <form class="delete-form comment-button" id="delete-comment-form" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE"
                                 method="POST">
