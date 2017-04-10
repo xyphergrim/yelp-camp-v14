@@ -17,6 +17,7 @@ var commentRoutes = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes = require("./routes/index");
 
+var port = process.env.PORT || "3000";
 var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v13";
 mongoose.connect(url); // local Cloud9 Dev DB
 
@@ -69,6 +70,6 @@ app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(port, process.env.IP, function(){
     console.log("YelpCamp server has started");
 });
