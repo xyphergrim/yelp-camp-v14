@@ -29,7 +29,7 @@
                     <% } %>
                     <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
                         <a class="btn btn-xs btn-warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
-                        <form id="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+                        <form class="delete-form" id="delete-camp-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
                             <button class="btn btn-xs btn-danger">Delete</button>
                         </form>
                     <% } %>
@@ -48,15 +48,15 @@
                 <% campground.comments.forEach(function(comment){ %>
                     <div class="row">
                         <div class="col-md-12">
-                            <strong><%= comment.author.username %></strong>
-                            <span class="pull-right"><%= moment(comment.createdAt).fromNow() %></span>
-                            <p>
+                            <strong class="comment-display"><%= comment.author.username %></strong>
+                            <span class="comment-display pull-right"><%= moment(comment.createdAt).fromNow() %></span>
+                            <p class="comment-display">
                                 <%= comment.text %>
                             </p>
                             <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
-                                <a class="btn btn-xs btn-warning" 
+                                <a class="comment-button btn btn-xs btn-warning" 
                                 href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit">Edit</a>
-                                <form id="delete-form" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE"
+                                <form class="delete-form comment-button" id="delete-comment-form" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE"
                                 method="POST">
                                     <input type="submit" class="btn btn-xs btn-danger" value="Delete">
                                 </form> 

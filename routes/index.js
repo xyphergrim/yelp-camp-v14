@@ -103,7 +103,7 @@ router.get("/favorites/:id", function(req, res){
             user.favorites.splice(favoriteIndex, 1);
         }
         user.save();
-        console.log("Favorites: " + user.favorites);
+        // console.log("Favorites: " + user.favorites);
         res.status(200).json('Success!');
     });
 });

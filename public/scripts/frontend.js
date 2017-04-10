@@ -124,4 +124,17 @@ $(document).ready(function(){
             console.log(data);
         });
     });
+    
+    $("#delete-comment-form").submit(function(event){
+        event.preventDefault();
+        
+        var action = $(this).attr("action");
+        var r = confirm("Delete your comment for real?");
+        if(r) {
+            $.post(action, function(data){
+                $(".comment-display").remove();
+                $(".comment-button").remove();
+            });
+        }
+    });
 });
