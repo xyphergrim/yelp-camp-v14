@@ -125,6 +125,19 @@ $(document).ready(function(){
         });
     });
     
+    $("#delete-camp-form").submit(function(event){
+        event.preventDefault();
+        
+        var action = $(this).attr("action");
+
+        var r = confirm("Delete this campground for good?");
+        if(r) {
+            $.post(action, function(data){
+                window.location.replace("/campgrounds");
+            });
+        }
+    })
+    
     $(".dlt-cmt-form").submit(function(event){
         event.preventDefault();
         

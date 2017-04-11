@@ -144,7 +144,8 @@ router.delete("/:id", middleware.checkCampgroundOwnership, function(req, res){
                     console.log(err);
                 }
             });
-            res.redirect("/campgrounds");
+            // res.redirect("/campgrounds");
+            res.json({message: "Campground Deleted!"});
         }
     });
 });
