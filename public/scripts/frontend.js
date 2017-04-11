@@ -118,22 +118,25 @@ $(document).ready(function(){
         event.preventDefault();
         // alert("submit works!");
         var action = $(this).attr("action");
-        console.log(action);
+        // console.log(action);
         $.get(action, function(data){
             $("#favorite-btn").toggleClass("favorite-btn-on");
             console.log(data);
         });
     });
     
-    $("#delete-comment-form").submit(function(event){
+    $(".dlt-cmt-form").submit(function(event){
         event.preventDefault();
         
         var action = $(this).attr("action");
+        var cmtId = $(this).attr("data-value");
+
         var r = confirm("Delete your comment for real?");
         if(r) {
             $.post(action, function(data){
-                $(".comment-display").remove();
-                $(".comment-button").remove();
+                $(".cmt-block").filter(function(){
+                    return $(this).data("value") === cmtId;
+                }).remove();
             });
         }
     });

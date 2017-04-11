@@ -84,11 +84,9 @@ router.delete("/:comment_id", middleware.checkCommentOwnership, function(req, re
                 if(err){
                     console.log(err);
                 } else {
-                    // $(".comment-display-"+).remove();
-                    // $(".comment-button-"+req.params.comment_id).remove();
                     // req.flash("success", "Comment deleted");
                     // res.redirect("/campgrounds/" + req.params.id);
-                    res.json("Success!");
+                    res.json({message: "Comment Deleted!"});
                 }
             });
         }
