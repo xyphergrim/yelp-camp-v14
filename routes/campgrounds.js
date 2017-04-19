@@ -7,6 +7,7 @@ var Campground = require("../models/campground");
 var middleware = require("../middleware");
 var geocoder = require("geocoder");
 var Comment = require("../models/comment");
+var User = require("../models/user");
 
 // Define escapeRefex function for search feature
 function escapeRegex(text){
@@ -144,6 +145,17 @@ router.delete("/:id", middleware.checkCampgroundOwnership, function(req, res){
                     console.log(err);
                 }
             });
+            
+            // User.findById(req.user._id, function(err, user){
+            //     if(err) {console.log(err)}
+            //     // if the campground is a favorite when deleted, remove from user favorites
+            //     var favoriteIndex = user.favorites.indexOf("/campgrounds/"+foundCampground._id);
+            //     if(favoriteIndex !== -1) { user.favorites.splice(favoriteIndex, 1); } 
+            //     user.save();
+            //     // console.log("Favorites: " + user.favorites);
+            //     res.status(200).json('Success!');
+            // });
+            
             // res.redirect("/campgrounds");
             res.json({message: "Campground Deleted!"});
         }

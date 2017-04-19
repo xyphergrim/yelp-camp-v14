@@ -13,6 +13,7 @@
         </div>
         <div class="col-md-9">
             <div class="thumbnail">
+                
                 <img class="img-responsive" src="<%= campground.image %>">
                 <div class="caption-full clearfix">
                     <h4 class="pull-right">$<%= campground.price %>/night</h4>
@@ -21,6 +22,7 @@
                     <p><em>Submitted by</em> <%= campground.author.username %>, <%= moment(campground.createdAt).fromNow() %></p>
                     <% if(currentUser) { %>
                         <% console.log(campground._id); %>
+                        <% var campIdVar = campground._id %>
                         <form id="favorite-form" action="/favorites/<%= campground._id %>" method="GET">
                             <button type="submit" class="pull-right <%= currentUser.favorites.indexOf("/campgrounds/"+campground._id) !== -1 ? "favorite-btn-on" : "" %>" id="favorite-btn">
                                 <i class="fa fa-star fa-2x" aria-hidden="true"></i>
@@ -29,8 +31,8 @@
                     <% } %>
                     <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
                         <a class="btn btn-xs btn-warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
-                        <form class="delete-form" id="delete-camp-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
-                            <button type="submit" class="btn btn-xs btn-danger">Delete</button>
+                        <form class="delete-form" id="delete-camp-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST" data-value="<%= JSON.stringify(campIdVar) %>">
+                            <input type="submit" class="btn btn-xs btn-danger" value=Delete>
                         </form>
                     <% } %>
                 </div>

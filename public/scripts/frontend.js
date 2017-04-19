@@ -129,14 +129,20 @@ $(document).ready(function(){
         event.preventDefault();
         
         var action = $(this).attr("action");
+        // var campId = $(this).attr("data-value");
 
         var r = confirm("Delete this campground for good?");
         if(r) {
             $.post(action, function(data){
+                // var favoriteIndex = currentUser.favorites.indexOf("/campgrounds/"+campId);
+                // if(favoriteIndex !== -1){
+                //     currentUser.favorites.splice(favoriteIndex, 1);
+                //     currentUser.save();
+                // }
                 window.location.replace("/campgrounds");
             });
         }
-    })
+    });
     
     $(".dlt-cmt-form").submit(function(event){
         event.preventDefault();
